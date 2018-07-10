@@ -6,6 +6,12 @@ spring:
     url: jdbc:mysql://192.168.204.135/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  jackson:
+    default-property-inclusion: non_null
 
 server:
   context-path: /sell
+
+wechat:
+  mpAppId: wxbc79b24753ee9b0d
+  mpAppSecret: 27808092ee6e3cdcff966fba8f2ad859

@@ -46,14 +46,14 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMasterRepository orderMasterRepository;
 
-    @Autowired
-    private PayService payService;
-
-    @Autowired
-    private PushMessageService pushMessageService;
-
-    @Autowired
-    private WebSocket webSocket;
+//    @Autowired
+//    private PayService payService;
+//
+//    @Autowired
+//    private PushMessageService pushMessageService;
+//
+//    @Autowired
+//    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -103,8 +103,8 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
-        //发送websocket消息
-        webSocket.sendMessage(orderDTO.getOrderId());
+//        //发送websocket消息
+//        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
@@ -169,9 +169,9 @@ public class OrderServiceImpl implements OrderService {
         productService.increaseStock(cartDTOList);
 
         //如果已支付, 需要退款
-        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            payService.refund(orderDTO);
-        }
+//        if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
+//            payService.refund(orderDTO);
+//        }
 
         return orderDTO;
     }
@@ -196,7 +196,7 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //推送微信模版消息
-        pushMessageService.orderStatus(orderDTO);
+//        pushMessageService.orderStatus(orderDTO);
 
         return orderDTO;
     }
