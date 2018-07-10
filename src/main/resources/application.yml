@@ -12,6 +12,15 @@ spring:
 server:
   context-path: /sell
 
+#授权测试
+#wechat:
+#  mpAppId: wxbc79b24753ee9b0d
+#  mpAppSecret: 27808092ee6e3cdcff966fba8f2ad859
+
+#支付测试
 wechat:
-  mpAppId: wxbc79b24753ee9b0d
-  mpAppSecret: 27808092ee6e3cdcff966fba8f2ad859
+ mpAppId: wxd898fcb01713c658
+ mchId: 1483469312
+ mchKey: C5245D70627C1F8E9964D494B0735025
+ keyPath: D:\01d3059e868cedea3b361b2ad1c05254.p12
+ notify-url: http://hxbsell.natapp1.cc/sell/pay/notify
