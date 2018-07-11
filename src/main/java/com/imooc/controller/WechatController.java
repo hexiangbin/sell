@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 
@@ -35,7 +36,7 @@ public class WechatController {
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //1. 配置
         //2. 调用方法
-        String url ="http://hxbsell.natapp1.cc/sell/wechat/userInfo";
+        String url =projectUrlConfig.getWechatMpAuthorize()+"/sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }
@@ -58,8 +59,10 @@ public class WechatController {
 
     @GetMapping("/qrAuthorize")
     public String qrAuthorize(@RequestParam("returnUrl") String returnUrl) {
-        String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrUserInfo";
-        String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN, URLEncoder.encode(returnUrl));
+        //String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrUserInfo"；
+        String url="http://sell.springboot.cn/sell/qr/oTgZpwWqAr6bttPcHqldtsOPD83k";
+        String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN,URLEncoder.encode(returnUrl));
+        redirectUrl=URLDecoder.decode(redirectUrl);
         return "redirect:" + redirectUrl;
     }
 

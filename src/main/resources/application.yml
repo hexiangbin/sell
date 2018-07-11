@@ -24,3 +24,11 @@ wechat:
  mchKey: C5245D70627C1F8E9964D494B0735025
  keyPath: D:\01d3059e868cedea3b361b2ad1c05254.p12
  notify-url: http://hxbsell.natapp1.cc/sell/pay/notify
+ openAppId: wx6ad144e54af67d87
+ openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+
+projectUrl:
+  wechat-mp-authorize: hxbsell.natapp1.cc
+  wechat-open-authorize: hxbsell.natapp1.cc
+  sell:
