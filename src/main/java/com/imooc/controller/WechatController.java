@@ -60,7 +60,7 @@ public class WechatController {
     @GetMapping("/qrAuthorize")
     public String qrAuthorize(@RequestParam("returnUrl") String returnUrl) {
         //String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrUserInfo"；
-        String url="http://sell.springboot.cn/sell/qr/oTgZpwWqAr6bttPcHqldtsOPD83k";
+        String url="http://sell.springboot.cn/sell/wechat/qrUserInfo";
         String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN,URLEncoder.encode(returnUrl));
         redirectUrl=URLDecoder.decode(redirectUrl);
         return "redirect:" + redirectUrl;
