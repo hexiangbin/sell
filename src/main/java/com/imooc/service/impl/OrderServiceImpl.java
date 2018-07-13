@@ -48,9 +48,9 @@ public class OrderServiceImpl implements OrderService {
 
 //    @Autowired
 //    private PushMessageService pushMessageService;
-//
-//    @Autowired
-//    private WebSocket webSocket;
+
+    @Autowired
+    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -100,8 +100,8 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
-//        //发送websocket消息
-//        webSocket.sendMessage(orderDTO.getOrderId());
+        //发送websocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
@@ -192,7 +192,7 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
 
-        //推送微信模版消息
+//        //推送微信模版消息
 //        pushMessageService.orderStatus(orderDTO);
 
         return orderDTO;
